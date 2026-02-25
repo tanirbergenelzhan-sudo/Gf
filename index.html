@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For My Bestie 💖</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #ffeef8;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            max-width: 400px;
+            width: 90%;
+        }
+
+        h1 { color: #ff4d6d; margin-bottom: 20px; }
+
+        .main-img {
+            width: 100%;
+            border-radius: 15px;
+            margin-bottom: 20px;
+        }
+
+        .btn-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        button {
+            padding: 15px 30px;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            font-size: 18px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+        #yesBtn { background-color: #ff4d6d; color: white; }
+        #noBtn { background-color: #adb5bd; color: white; }
+
+        .hidden { display: none; }
+
+        #final-msg h2 { color: #ff4d6d; }
+    </style>
+</head>
+<body>
+
+<audio id="bgMusic" loop>
+    <source src="music.mp3" type="audio/mpeg">
+</audio>
+
+<div class="container" id="main-card">
+    <h1>Доброе утро💖</h1>
+
+    <img src="morning.jpg" alt="Morning Image" class="main-img">
+
+    <p style="font-size: 20px;">Am I ur best bf?</p>
+
+    <div class="btn-container">
+        <button id="yesBtn" onclick="showLove()">YES🥰</button>
+        <button id="noBtn" onclick="growYes()">NO🫠</button>
+    </div>
+</div>
+
+<div class="container hidden" id="final-msg">
+    <h2>u also my best gf 💖</h2>
+    <img src="happy.gif" alt="Happy GIF" class="main-img">
+</div>
+
+<script>
+    let yesSize = 18;
+    let noSize = 18;
+
+    function growYes() {
+        const music = document.getElementById('bgMusic');
+        music.play();
+
+        yesSize += 40;
+        noSize -= 2;
+
+        const yesBtn = document.getElementById('yesBtn');
+        const noBtn = document.getElementById('noBtn');
+
+        yesBtn.style.fontSize = yesSize + 'px';
+        yesBtn.style.padding = (yesSize/1.2) + 'px ' + (yesSize*1.5) + 'px';
+
+        if (noSize > 5) {
+            noBtn.style.fontSize = noSize + 'px';
+        } else {
+            noBtn.style.display = 'none';
+        }
+    }
+
+    function showLove() {
+        document.getElementById('main-card').classList.add('hidden');
+        document.getElementById('final-msg').classList.remove('hidden');
+
+        const music = document.getElementById('bgMusic');
+        music.play();
+    }
+</script>
+
+</body>
+</html>
